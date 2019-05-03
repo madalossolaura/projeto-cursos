@@ -3,10 +3,5 @@
     $db_user = 'root';
     $db_pass = '';
 
-    
-
-    //var_dump($conexao);
-
-    //$conexao->query('SELECT * FROM usuarios');
-
+    $conexao = new PDO($dsn, $db_user, $db_pass);
 ?>

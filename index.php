@@ -1,15 +1,12 @@
 <?php
     include "inc/head.php";
     include "inc/header.php";
-    include "req/database.php";
+    require "req/database.php";
 
     try {
-        $conexao = new PDO($dsn, $db_user, $db_pass);
-
         $query = $conexao->query('SELECT * FROM cursos');
-
         $cursos = $query->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($cursos);
+        $conexao = null;
     } catch(PDOException $Exception) {
         echo $Exception->getMessage();
     }
@@ -23,9 +20,6 @@
 
     
 ?>
-
-   
-
     <div class="container">
         <div class="row">
             <?php foreach ($cursos as $key => $infosCurso) : ?>
